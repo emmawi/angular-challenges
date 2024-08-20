@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ButtonComponent } from './button.component';
@@ -15,7 +16,7 @@ import { UserStore } from './user.store';
 
 @Component({
   standalone: true,
-  imports: [InformationComponent, RouterLink, ButtonComponent],
+  imports: [InformationComponent, RouterLink, ButtonComponent, JsonPipe],
   selector: 'app-login',
   template: `
     <header class="flex items-center gap-3">
@@ -37,7 +38,7 @@ import { UserStore } from './user.store';
   `,
 })
 export class LoginComponent {
-  constructor(private userStore: UserStore) {}
+  constructor(public userStore: UserStore) {}
 
   admin() {
     this.userStore.add(admin);
